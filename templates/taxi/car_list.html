@@ -2,6 +2,12 @@
 
 {% block content %}
   <h1>Car list</h1>
+  <form action="{% url "taxi:car-create" %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary" style="float:right">
+      Create
+    </button>
+  </form>
   {% if car_list %}
     <ul>
       {% for car in car_list %}
